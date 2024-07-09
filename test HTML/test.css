@@ -1,0 +1,150 @@
+@font-face {
+    font-family: 'SamarquandLight';
+    src: url('/samarquand/SamarquandLight-Regular.ttf') format('truetype');
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+    background-color: #f9f4ec;
+}
+
+.container {
+    padding: 20px;
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+.title {
+    color: #d32f2f;
+    font-size: 25px;
+    margin: 0;
+}
+
+.sub-title {
+    color: #d32f2f;
+    font-size: 30px;
+    margin-bottom: 10px;
+    font-family: 'SamarquandLight', cursive;
+}
+
+html, body {
+    overflow: hidden; /* Hide overflow to prevent default browser scrollbar */
+  }
+  
+  .recipes-container {
+    overflow-y: auto; /* Enable vertical scrolling */
+    scroll-behavior: smooth; /* Smooth scrolling behavior */
+  }
+  
+.recipes {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 10px;
+    scrollbar-width: none; /* For Firefox */
+}
+
+.recipes::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+}
+
+.recipe-card {
+    position: relative;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 225px;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.recipe-card::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px; /* Adjust height as needed for shadow size */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%); /* Black to transparent gradient */
+    z-index: 1; /* Set z-index to position behind text */
+}
+
+.recipe-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.recipe-details {
+    position: absolute;
+    bottom: 0;
+    left: 5px;
+    width: 100%;
+    color: white;
+    padding: 10px;
+    box-sizing: border-box;
+    z-index: 2; /* Set z-index to bring text on top */
+}
+
+.recipe-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    margin: 0 0 5px 0;
+}
+
+.recipe-info {
+    color: #ddd;
+    font-size: 14px;
+    margin: 0;
+}
+
+.scroll-button {
+    position: absolute;
+    margin-left: 150px;
+    top: 35%;
+    transform: translateY(-50%);
+    
+    background: rgba(0, 0, 0, 0.7); /* Darken background on hover */
+    color: #f1f1f1; /* Slightly lighten text color on hover */
+    border: 10px;
+    padding: 10px;
+    border-radius: 15%; /* Set rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
+    cursor: pointer;
+    z-index: 3; /* Ensure button is above everything else */
+}
+
+.scroll-left {
+    left: 0;
+}
+
+.scroll-right {
+    right: 0;
+    margin-right: 140px;
+}
+
+.recipe-image.hover-zoom {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    transform: scale(1.1);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Add box shadow on hover */
+  }
+  
+  
+  .scroll-button {
+  /* ... previous styles ... */
+  animation: button-pulse 1s infinite ease-in-out; /* Add subtle animation */
+}
+
+@keyframes button-pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

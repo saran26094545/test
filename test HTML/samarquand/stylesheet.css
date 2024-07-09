@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'Samarquand';
+    src: url('SamarquandBold-Regular.eot');
+    src: local('Samarquand Bold'), local('SamarquandBold-Regular'),
+        url('SamarquandBold-Regular.eot?#iefix') format('embedded-opentype'),
+        url('SamarquandBold-Regular.woff2') format('woff2'),
+        url('SamarquandBold-Regular.woff') format('woff'),
+        url('SamarquandBold-Regular.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Samarquand';
+    src: url('Samarquand-Regular.eot');
+    src: local('Samarquand'), local('Samarquand-Regular'),
+        url('Samarquand-Regular.eot?#iefix') format('embedded-opentype'),
+        url('Samarquand-Regular.woff2') format('woff2'),
+        url('Samarquand-Regular.woff') format('woff'),
+        url('Samarquand-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Samarquand';
+    src: url('SamarquandLight-Regular.eot');
+    src: local('Samarquand Light'), local('SamarquandLight-Regular'),
+        url('SamarquandLight-Regular.eot?#iefix') format('embedded-opentype'),
+        url('SamarquandLight-Regular.woff2') format('woff2'),
+        url('SamarquandLight-Regular.woff') format('woff'),
+        url('SamarquandLight-Regular.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สมัครสมาชิก</title>
+    <style>
+       body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="number"],
+.form-group textarea,
+.form-group select {
+    width: calc(100% - 12px);
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-group select {
+    width: 100%;
+}
+
+.form-group input[type="submit"] {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.form-group input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+.error-message {
+    color: #d9534f;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        width: 90%;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>สมัครสมาชิก</h2>
+    <form action="process_registration.php" method="post">
+        <div class="form-group">
+            <label for="memberType">ประเภทสมาชิก:</label>
+            <select id="memberType" name="memberType" required>
+                <option value="general">บุคคลทั่วไป</option>
+                <option value="student">นักเรียน/นักศึกษา</option>
+                <option value="merchant">ร้านค้า</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="fullName">ชื่อ-นามสกุล:</label>
+            <input type="text" id="fullName" name="fullName" required>
+        </div>
+        <div class="form-group">
+            <label for="idCard">รหัสบัตรประชาชน:</label>
+            <input type="text" id="idCard" name="idCard" required>
+        </div>
+        <div class="form-group">
+            <label for="email">อีเมล์:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="birthdate">วันเกิด:</label>
+            <input type="date" id="birthdate" name="birthdate" required>
+        </div>
+        <div class="form-group">
+            <label for="phoneNumber">หมายเลขโทรศัพท์:</label>
+            <input type="text" id="phoneNumber" name="phoneNumber" required>
+        </div>
+        
+        <!-- ส่วนของนักเรียน/นักศึกษา -->
+        <div id="studentFields" style="display: none;">
+            <div class="form-group">
+                <label for="schoolName">ชื่อสถานศึกษา:</label>
+                <input type="text" id="schoolName" name="schoolName">
+            </div>
+            <div class="form-group">
+                <label for="studentId">รหัสประจำตัวนักเรียน/นักศึกษา:</label>
+                <input type="text" id="studentId" name="studentId">
+            </div>
+            <div class="form-group">
+                <label for="studentCardImage">รูปภาพบัตรนักเรียน/นักศึกษา:</label>
+                <input type="file" id="studentCardImage" name="studentCardImage">
+            </div>
+            <div class="form-group">
+                <label for="cardExpiryDate">วันหมดอายุบัตร:</label>
+                <input type="date" id="cardExpiryDate" name="cardExpiryDate">
+            </div>
+        </div>
+        
+        <!-- ส่วนของร้านค้า -->
+        <div id="merchantFields" style="display: none;">
+            <div class="form-group">
+                <label for="businessName">ชื่อผู้ประกอบการ:</label>
+                <input type="text" id="businessName" name="businessName">
+            </div>
+            <div class="form-group">
+                <label for="businessRegistrationNumber">เลขทะเบียนนิติบุคคล:</label>
+                <input type="text" id="businessRegistrationNumber" name="businessRegistrationNumber">
+            </div>
+            <div class="form-group">
+                <label for="legalDocument">เอกสารนิติบุคคล:</label>
+                <input type="file" id="legalDocument" name="legalDocument">
+            </div>
+        </div>
+        
+        <!-- ปุ่มส่งฟอร์ม -->
+        <div class="form-group">
+            <input type="submit" value="สมัครสมาชิก">
+        </div>
+    </form>
+</div>
+
+<!-- Script สำหรับแสดง/ซ่อนส่วนของนักเรียน/นักศึกษา และร้านค้า -->
+<script>
+    document.getElementById('memberType').addEventListener('change', function() {
+        var studentFields = document.getElementById('studentFields');
+        var merchantFields = document.getElementById('merchantFields');
+        
+        if (this.value === 'student') {
+            studentFields.style.display = 'block';
+            merchantFields.style.display = 'none';
+        } else if (this.value === 'merchant') {
+            studentFields.style.display = 'none';
+            merchantFields.style.display = 'block';
+        } else {
+            studentFields.style.display = 'none';
+            merchantFields.style.display = 'none';
+        }
+    });
+</script>
+
+</body>
+</html>
