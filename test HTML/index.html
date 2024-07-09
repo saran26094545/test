@@ -178,7 +178,7 @@
           const scrollWidth = getScrollWidth();
           const viewportWidth = recipes.offsetWidth;
       
-          // Check if at the end, disable button if so
+
           if (currentScrollLeft + viewportWidth >= scrollWidth) {
             document.querySelector('.scroll-right').disabled = true;
             return;
@@ -187,7 +187,7 @@
           const scrollAmount = Math.min(scrollWidth - currentScrollLeft - viewportWidth, 245);
           recipes.scrollBy({ left: scrollAmount, behavior: 'smooth' });
       
-          // Re-enable left scroll button if needed
+
           document.querySelector('.scroll-left').disabled = false;
         }
 
@@ -198,11 +198,11 @@
 
         recipeImages.forEach(image => {
             image.addEventListener('mouseover', function() {
-            this.classList.add('hover-zoom'); // Add a class to style the image on hover
+            this.classList.add('hover-zoom');
         });
 
         image.addEventListener('mouseout', function() {
-            this.classList.remove('hover-zoom'); // Remove the class to reset the image size
+            this.classList.remove('hover-zoom');
             });
         });
 

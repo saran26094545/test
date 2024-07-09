@@ -115,7 +115,6 @@ h2 {
             <input type="text" id="phoneNumber" name="phoneNumber" required>
         </div>
         
-        <!-- ส่วนของนักเรียน/นักศึกษา -->
         <div id="studentFields" style="display: none;">
             <div class="form-group">
                 <label for="schoolName">ชื่อสถานศึกษา:</label>
@@ -135,7 +134,6 @@ h2 {
             </div>
         </div>
         
-        <!-- ส่วนของร้านค้า -->
         <div id="merchantFields" style="display: none;">
             <div class="form-group">
                 <label for="businessName">ชื่อผู้ประกอบการ:</label>
@@ -151,14 +149,12 @@ h2 {
             </div>
         </div>
         
-        <!-- ปุ่มส่งฟอร์ม -->
         <div class="form-group">
             <input type="submit" value="สมัครสมาชิก">
         </div>
     </form>
 </div>
 
-<!-- Script สำหรับแสดง/ซ่อนส่วนของนักเรียน/นักศึกษา และร้านค้า -->
 <script>
     document.getElementById('memberType').addEventListener('change', function() {
         var studentFields = document.getElementById('studentFields');
